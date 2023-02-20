@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "build:insights": "pnpm --filter packages/insights build",
+    "dev": "pnpm --filter client dev",
+    "build:insights": "pnpm --filter insights build",
     "build": "pnpm build:insights",
-    "lint:insights": "pnpm --filter packages/insights lint",
+    "lint:insights": "pnpm --filter insights lint",
     "lint": "pnpm lint:insights",
-    "test:insights": "pnpm --filter packages/insights test",
+    "test:insights": "pnpm --filter insights test",
     "test": "pnpm test:insights",
     "all": "pnpm lint && pnpm build && pnpm test"
   },
