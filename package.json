@@ -1,12 +1,15 @@
 {
   "scripts": {
-    "dev": "pnpm --filter client dev",
-    "build:insights": "pnpm --filter insights build",
-    "build": "pnpm build:insights",
-    "lint:insights": "pnpm --filter insights lint",
-    "lint": "pnpm lint:insights",
-    "test:insights": "pnpm --filter insights test",
-    "test": "pnpm test:insights",
+    "insights:build": "pnpm --filter insights build",
+    "insights:lint": "pnpm --filter insights lint",
+    "insights:test": "pnpm --filter insights test",
+
+    "client:dev": "pnpm --filter client dev",
+    "client:lint": "pnpm --filter insights lint",
+
+    "lint": "pnpm insights:lint && pnpm client:lint",
+    "build": "pnpm insights:build",
+    "test": "pnpm insights:test",
     "all": "pnpm lint && pnpm build && pnpm test"
   },
   "keywords": [
