@@ -5,7 +5,7 @@
     "insights:test": "pnpm --filter insights test",
 
     "client:dev": "pnpm --filter client dev",
-    "client:lint": "pnpm --filter insights lint",
+    "client:lint": "pnpm --filter client lint",
 
     "lint": "pnpm insights:lint && pnpm client:lint",
     "build": "pnpm insights:build",
