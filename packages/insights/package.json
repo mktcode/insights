@@ -1,0 +1,19 @@
+{
+  "name": "@openq/insights",
+  "version": "0.0.1",
+  "description": "Utilities to analyze GitHub repositories.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "octokit": "^2.0.14"
+  }
+}

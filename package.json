@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "build:insights": "pnpm --filter insights build",
+    "build": "pnpm build:insights",
+    "lint:insights": "pnpm --filter insights lint",
+    "lint": "pnpm lint:insights",
+    "test:insights": "pnpm --filter insights test",
+    "test": "pnpm test:insights"
+  },
+  "keywords": [
+    "openq"
+  ],
+  "author": "mktcode",
+  "license": "ISC",
+  "devDependencies": {
+    "@jest/globals": "^29.4.3",
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.14.0",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
+    "eslint": "^8.34.0",
+    "jest": "^29.4.3",
+    "ts-jest": "^29.0.5",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
+  }
+}
