@@ -11,7 +11,9 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@octokit/graphql": "^5.0.5",
     "@openq/insights": "workspace:^0.0.1",
+    "isomorphic-fetch": "^3.0.0",
     "vue": "^3.2.45"
   },
   "devDependencies": {
