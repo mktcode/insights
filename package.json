@@ -5,7 +5,8 @@
     "lint:insights": "pnpm --filter insights lint",
     "lint": "pnpm lint:insights",
     "test:insights": "pnpm --filter insights test",
-    "test": "pnpm test:insights"
+    "test": "pnpm test:insights",
+    "all": "pnpm build && pnpm lint && pnpm test"
   },
   "keywords": [
     "openq"
