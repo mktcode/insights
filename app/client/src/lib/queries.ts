@@ -1,5 +1,6 @@
 export const GITHUB_AUTHOR_QUERY = `query ($login: String!) { 
   user (login: $login) {
+    login
     createdAt
     followers (first: 100) {
       totalCount
@@ -21,15 +22,19 @@ export const GITHUB_AUTHOR_QUERY = `query ($login: String!) {
         forkCount
       }
     }
-    pullRequests (first: 100) {
+    pullRequests (first: 100, states: [MERGED], orderBy: { field: CREATED_AT, direction: DESC}) {
       totalCount
       nodes {
         merged
-        headRepository {
+        mergedAt
+        repository {
+          owner {
+            login
+          }
           stargazerCount
           forkCount
         }
       }
     }
   }
-}`
+}`;
