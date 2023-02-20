@@ -1,7 +1,5 @@
-export function calculateScores({ commits, comments, authors, duration }: { commits: number, comments: number, authors: number, duration: number }) {
+export function calculateAuthorScore(author: any) {
   return {
-    authorScore: authors,
-    commitScore: commits / authors / duration,
-    commentScore: comments / authors / duration
+    authorScore: 1000
   };
 }
