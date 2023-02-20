@@ -1,33 +1,40 @@
 # OpenQ Insights
 
+
+## Usage
+
 ```bash
 npm i @openq/insights
 ```
+<sup>(not published yet)</sup>
 
 ```js
-import { authorScore, repoScore } = from '@openq/insights'
+import { calculateAuthorScore } = from '@openq/insights'
+
+const {
+  forkCount,
+  followersForkCount,
+  stargazerCount,
+  followersStargazerCount,
+  followersFollowerCount,
+  mergedPullRequestCount,
+  mergedPullRequestCount30d,
+  mergedPullRequestCount365d,
+} = calculateAuthorScore(user);
 ```
 
-## PR Score
+## Development
 
-Prio 1:
+```bash
+npm i
+npm run client:dev
+```
 
-- Authors
-  - account age
-  - average activity
-    - past 3 months
-    - past 12 months
-    - all time
-  - number of merged PRs (in repos not owned)
-    - past 3 months
-    - past 12 months
-    - all time
-  - follower count
-- PR Repo
-  - stars (could be seen as hackathon community voting)
+Run tests, linting, and build:
 
-# Thoughts/Ideas
+```bash
+npm test
+npm run lint
+npm run build
+```
 
-- contributor activity growth
-- experience level of teams/devs (activity over time)
-- highlight dev with most stars/followers
