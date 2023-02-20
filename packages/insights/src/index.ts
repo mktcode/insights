@@ -63,11 +63,19 @@ export function calculateAuthorScore(author: Author) {
     0
   );
 
+  const mergedPullRequestCount = 100;
+  const mergedPullRequestCount30d = 5;
+  const mergedPullRequestCount365d = 30;
+
+
   return {
     forkCount,
     followersForkCount,
     stargazerCount,
     followersStargazerCount,
     followersFollowerCount,
+    mergedPullRequestCount,
+    mergedPullRequestCount30d,
+    mergedPullRequestCount365d,
   };
 }
