@@ -1,5 +1,13 @@
 # OpenQ Insights
 
+```bash
+npm i @openq/insights
+```
+
+```js
+import { authorScore, repoScore } = from '@openq/insights'
+```
+
 ## PR Score
 
 Prio 1:
@@ -18,27 +26,8 @@ Prio 1:
 - PR Repo
   - stars (could be seen as hackathon community voting)
 
-Prio 2:
+# Thoughts/Ideas
 
-- Code?
-  - uses CI/CD
-  - code coverage
-  - code complexity
-  - code duplication
-  - code quality
-  - code security
-  - code size
-  - code style
-  - code test coverage
-  - code test quality
-  - code test size
-
-# Questions to answer
-
-## During the hackathon
-
-## After the hackathon
-
-contributor activity growth
-experience level of teams/devs
+- contributor activity growth
+- experience level of teams/devs (activity over time)
 - highlight dev with most stars/followers
