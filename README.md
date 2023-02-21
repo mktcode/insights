@@ -6,7 +6,7 @@
 ```bash
 npm i @openq/insights
 ```
-<sup>(not published yet)</sup>
+<sup>(not published yet but works inside this monorepo)</sup>
 
 ```js
 import { calculateAuthorScore } = from '@openq/insights'
