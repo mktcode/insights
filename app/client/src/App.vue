@@ -5,6 +5,8 @@ import { calculateAuthorScore } from "@openq/insights";
 import { graphqlWithAuth } from "@/lib/githubClient";
 import { GITHUB_AUTHOR_QUERY } from "@/lib/queries";
 
+const username = ref(window.location.hash.replace("#", "") || "mktcode");
+
 const forkCount = ref(0);
 const followersForkCount = ref(0);
 const stargazerCount = ref(0);
@@ -16,7 +18,7 @@ onMounted(async () => {
     const { user } = await graphqlWithAuth<{ user: Author }>(
       GITHUB_AUTHOR_QUERY,
       {
-        login: "mktcode",
+        login: username.value,
       }
     );
 
