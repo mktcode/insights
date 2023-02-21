@@ -72,7 +72,8 @@ onMounted(async () => {
         requests,
         <span class="font-bold">{{ mergedPullRequestCount365d }}</span> in the
         last year and
-        <span class="font-bold">{{ mergedPullRequestCount30d }}</span> in the last 30 days.
+        <span class="font-bold">{{ mergedPullRequestCount30d }}</span> in the
+        last 30 days.
       </p>
     </div>
   </main>
