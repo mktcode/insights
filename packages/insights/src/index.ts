@@ -115,8 +115,6 @@ export function calculateAuthorScore(author: Author) {
   };
 }
 
-export function calculateRepositoryContributorTurnover(
-  _repository: Repository // TODO: Respect underscore (configure eslint) to silence unused variable warning
-) {
+export function calculateRepositoryContributorTurnover(repository: Repository) {
   return 1; // TODO: Implement
 }
