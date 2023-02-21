@@ -3,6 +3,9 @@ import { calculateAuthorScore, calculateRepositoryContributorTurnover } from '..
 import GITHUB_AUTHOR_MOCK from './mocks/github-author.json';
 import GITHUB_REPOSITORY_MOCK from './mocks/github-repository.json';
 
+jest.useFakeTimers();
+jest.setSystemTime(1677015116954);
+
 describe('author score', () => {
   test('is calculated correctly', () => {
     const expectedForkCount = 753;
@@ -12,7 +15,7 @@ describe('author score', () => {
     const expectedFollowersFollowerCount = 17950;
     const expectedMergedPullRequestCount = 92;
     const expectedMergedPullRequestCount30d = 7;
-    const expectedMergedPullRequestCount365d = 70;
+    const expectedMergedPullRequestCount365d = 67;
 
     const {
       forkCount,
