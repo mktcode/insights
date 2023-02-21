@@ -1,9 +1,10 @@
 import { describe, expect, test } from '@jest/globals';
-import { calculateAuthorScore } from '../src';
+import { calculateAuthorScore, calculateRepositoryContributorTurnover } from '../src';
 import GITHUB_AUTHOR_MOCK from './mocks/github-author.json';
+import GITHUB_REPOSITORY_MOCK from './mocks/github-repository.json';
 
-describe('author module', () => {
-  test('calculates score correctly', () => {
+describe('author score', () => {
+  test('is calculated correctly', () => {
     const expectedForkCount = 753;
     const expectedFollowersForkCount = 11371;
     const expectedStargazerCount = 2389;
@@ -32,5 +33,17 @@ describe('author module', () => {
     expect(mergedPullRequestCount).toBe(expectedMergedPullRequestCount);
     expect(mergedPullRequestCount30d).toBe(expectedMergedPullRequestCount30d);
     expect(mergedPullRequestCount365d).toBe(expectedMergedPullRequestCount365d);
+  });
+});
+
+describe('repository contributor turnover', () => {
+  test('is calculated correctly', () => {
+    const expectedContributorTurnover = 0.5;
+
+    const contributorTurnover = calculateRepositoryContributorTurnover(
+      GITHUB_REPOSITORY_MOCK.data.repository
+    );
+
+    expect(contributorTurnover).toBe(expectedContributorTurnover);
   });
 });

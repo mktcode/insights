@@ -37,6 +37,10 @@ export type Author = {
   }
 }
 
+export type Repository = {
+  createdAt: string;
+}
+
 export function calculateAuthorScore(author: Author) {
   const forkCount = author.repositories.nodes.reduce(
     (acc, repo) => acc + repo.forkCount,
@@ -109,4 +113,10 @@ export function calculateAuthorScore(author: Author) {
     mergedPullRequestCount30d,
     mergedPullRequestCount365d,
   };
+}
+
+export function calculateRepositoryContributorTurnover(
+  _repository: Repository // TODO: Respect underscore (configure eslint) to silence unused variable warning
+) {
+  return 1; // TODO: Implement
 }
