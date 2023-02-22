@@ -114,7 +114,3 @@ export function calculateAuthorScore(author: Author) {
     mergedPullRequestCount365d,
   };
 }
-
-export function calculateRepositoryContributorTurnover(repository: Repository) {
-  return 1; // TODO: Implement
-}
