@@ -1,7 +1,7 @@
 {
-  "name": "@openq/insights",
+  "name": "@openq/github-insights",
   "version": "0.0.1",
-  "description": "Utilities to analyze GitHub repositories.",
+  "description": "Utilities to fetch and evaluate GitHub data.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

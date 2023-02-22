@@ -29,7 +29,7 @@ importers:
   app/client:
     specifiers:
       '@octokit/graphql': ^5.0.5
-      '@openq/insights': workspace:^0.0.1
+      '@openq/github-insights': workspace:^0.0.1
       '@rushstack/eslint-patch': ^1.1.4
       '@types/node': ^18.11.12
       '@vitejs/plugin-vue': ^4.0.0
@@ -52,7 +52,7 @@ importers:
       vue-tsc: ^1.0.12
     dependencies:
       '@octokit/graphql': 5.0.5
-      '@openq/insights': link:../../packages/insights
+      '@openq/github-insights': link:../../packages/insights
       isomorphic-fetch: 3.0.0
       vue: 3.2.47
     devDependencies:

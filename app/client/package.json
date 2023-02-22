@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@octokit/graphql": "^5.0.5",
-    "@openq/insights": "workspace:^0.0.1",
+    "@openq/github-insights": "workspace:^0.0.1",
     "isomorphic-fetch": "^3.0.0",
     "vue": "^3.2.45"
   },

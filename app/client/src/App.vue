@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { GithubInsights } from "@openq/insights";
+import { GithubInsights } from "@openq/github-insights";
 
 const username = ref(window.location.hash.replace("#", "") || "mktcode");
 

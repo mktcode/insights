@@ -1,15 +1,16 @@
 # OpenQ Insights
 
-
 ## Usage
 
 ```bash
-npm i @openq/insights
+npm i @openq/github-insights
 ```
 <sup>(not published yet but works inside this monorepo)</sup>
 
 ```js
-import { calculateAuthorScore } = from '@openq/insights'
+const githubInsights = new GithubInsights({
+  viewerToken: "<access token>",
+});
 
 const {
   forkCount,
@@ -20,7 +21,7 @@ const {
   mergedPullRequestCount,
   mergedPullRequestCount30d,
   mergedPullRequestCount365d,
-} = calculateAuthorScore(user);
+} = await githubInsights.scanUser(username.value);
 ```
 
 ## Development
