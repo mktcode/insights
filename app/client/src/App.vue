@@ -2,6 +2,10 @@
 import { onMounted, ref } from "vue";
 import { GithubInsights } from "@openq/github-insights";
 
+const githubInsights = new GithubInsights({
+  viewerToken: import.meta.env.VITE_GITHUB_TOKEN,
+});
+
 const username = ref(window.location.hash.replace("#", "") || "mktcode");
 
 const forkCount = ref(0);
@@ -17,10 +21,6 @@ const loadingData = ref(true);
 
 onMounted(async () => {
   try {
-    const githubInsights = new GithubInsights({
-      viewerToken: import.meta.env.VITE_GITHUB_TOKEN,
-    });
-
     const authorScan = await githubInsights.scanUser(username.value);
 
     forkCount.value = authorScan.forkCount;
