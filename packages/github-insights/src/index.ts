@@ -1,5 +1,6 @@
 import { graphql } from "@octokit/graphql";
-import { GITHUB_USER_QUERY } from "./queries";
+import { print } from "graphql";
+import { GITHUB_USER_SCAN_QUERY } from "./queries";
 import { evaluateUserScan, type UserScan } from "./evaluators/user";
 
 export class GithubInsights {
@@ -16,7 +17,7 @@ export class GithubInsights {
 
   async scanUser(login: string) {
     const { user } = await this.client<{ user: UserScan }>(
-      GITHUB_USER_QUERY,
+      print(GITHUB_USER_SCAN_QUERY),
       { login }
     );
 
