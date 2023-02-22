@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import type { Author } from "@openq/insights";
-import { calculateAuthorScore } from "@openq/insights";
-import { graphqlWithAuth } from "@/lib/githubClient";
-import { GITHUB_AUTHOR_QUERY } from "@/lib/queries";
+import { GithubInsights } from "@openq/insights";
 
 const username = ref(window.location.hash.replace("#", "") || "mktcode");
 
@@ -20,23 +17,20 @@ const loadingData = ref(true);
 
 onMounted(async () => {
   try {
-    const { user } = await graphqlWithAuth<{ user: Author }>(
-      GITHUB_AUTHOR_QUERY,
-      {
-        login: username.value,
-      }
-    );
+    const githubInsights = new GithubInsights({
+      viewerToken: import.meta.env.VITE_GITHUB_TOKEN,
+    });
 
-    const authorScore = calculateAuthorScore(user);
+    const authorScan = await githubInsights.scanUser(username.value);
 
-    forkCount.value = authorScore.forkCount;
-    followersForkCount.value = authorScore.followersForkCount;
-    stargazerCount.value = authorScore.stargazerCount;
-    followersStargazerCount.value = authorScore.followersStargazerCount;
-    followersFollowerCount.value = authorScore.followersFollowerCount;
-    mergedPullRequestCount.value = authorScore.mergedPullRequestCount;
-    mergedPullRequestCount30d.value = authorScore.mergedPullRequestCount30d;
-    mergedPullRequestCount365d.value = authorScore.mergedPullRequestCount365d;
+    forkCount.value = authorScan.forkCount;
+    followersForkCount.value = authorScan.followersForkCount;
+    stargazerCount.value = authorScan.stargazerCount;
+    followersStargazerCount.value = authorScan.followersStargazerCount;
+    followersFollowerCount.value = authorScan.followersFollowerCount;
+    mergedPullRequestCount.value = authorScan.mergedPullRequestCount;
+    mergedPullRequestCount30d.value = authorScan.mergedPullRequestCount30d;
+    mergedPullRequestCount365d.value = authorScan.mergedPullRequestCount365d;
   } catch (error) {
     console.error(error);
   } finally {

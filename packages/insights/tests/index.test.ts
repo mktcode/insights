@@ -1,12 +1,12 @@
 import { describe, expect, test } from '@jest/globals';
-import { calculateAuthorScore } from '../src';
-import GITHUB_AUTHOR_MOCK from './mocks/github-author.json';
+import { evaluateUserScan } from '../src/evaluators/user';
+import GITHUB_USER_SCAN_MOCK from './mocks/github-user-scan.json';
 
 jest.useFakeTimers();
 jest.setSystemTime(1677015116954);
 
-describe('author score', () => {
-  test('is calculated correctly', () => {
+describe('user scan', () => {
+  test('is evaluated correctly', () => {
     const expectedForkCount = 753;
     const expectedFollowersForkCount = 11371;
     const expectedStargazerCount = 2389;
@@ -25,7 +25,7 @@ describe('author score', () => {
       mergedPullRequestCount,
       mergedPullRequestCount30d,
       mergedPullRequestCount365d,
-    } = calculateAuthorScore(GITHUB_AUTHOR_MOCK.data.user);
+    } = evaluateUserScan(GITHUB_USER_SCAN_MOCK.data.user);
 
     expect(forkCount).toBe(expectedForkCount);
     expect(followersForkCount).toBe(expectedFollowersForkCount);
