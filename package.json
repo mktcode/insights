@@ -1,9 +1,5 @@
 {
   "scripts": {
-    "graphql-deepquery:build": "pnpm --filter graphql-deepquery build",
-    "graphql-deepquery:lint": "pnpm --filter graphql-deepquery lint",
-    "graphql-deepquery:test": "pnpm --filter graphql-deepquery test",
-
     "github-insights:build": "pnpm --filter github-insights build",
     "github-insights:lint": "pnpm --filter github-insights lint",
     "github-insights:test": "pnpm --filter github-insights test",
@@ -11,9 +7,9 @@
     "client:dev": "pnpm --filter client dev",
     "client:lint": "pnpm --filter client lint",
 
-    "lint": "pnpm graphql-deepquery:lint && pnpm github-insights:lint && pnpm client:lint",
-    "build": "pnpm graphql-deepquery:build && pnpm github-insights:build",
-    "test": "pnpm graphql-deepquery:test && pnpm github-insights:test",
+    "lint": "pnpm github-insights:lint && pnpm client:lint",
+    "build": "pnpm github-insights:build",
+    "test": "pnpm github-insights:test",
     "all": "pnpm lint && pnpm build && pnpm test"
   },
   "keywords": [
