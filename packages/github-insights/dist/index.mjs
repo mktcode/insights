@@ -69,6 +69,15 @@ var GITHUB_USER_SCAN_QUERY = gql`query (
     }
   }
 }`;
+var GITHUB_REPOSITORY_SCAN_QUERY = gql`query (
+  $owner: String!,
+  $name: String!
+) { 
+  repository (owner: $owner, name: $name) {
+    createdAt
+    stargazerCount
+  }
+}`;
 
 // src/evaluators/user.ts
 function evaluateUserScan(userScan) {
@@ -138,6 +147,16 @@ function evaluateUserScan(userScan) {
   };
 }
 
+// src/evaluators/repository.ts
+function evaluateRepositoryScan(userScan) {
+  return {
+    mostActiveContributor: {
+      login: "mktcode",
+      contributions: 99999
+    }
+  };
+}
+
 // src/index.ts
 var GithubInsights = class {
   constructor(options) {
@@ -155,6 +174,15 @@ var GithubInsights = class {
         { login }
       );
       return evaluateUserScan(user);
+    });
+  }
+  scanRepository(owner, name) {
+    return __async(this, null, function* () {
+      const { repository } = yield this.client(
+        print(GITHUB_REPOSITORY_SCAN_QUERY),
+        { owner, name }
+      );
+      return evaluateRepositoryScan(repository);
     });
   }
 };

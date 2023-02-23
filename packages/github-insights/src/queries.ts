@@ -44,3 +44,13 @@ export const GITHUB_USER_SCAN_QUERY = gql`query (
     }
   }
 }`;
+
+export const GITHUB_REPOSITORY_SCAN_QUERY = gql`query (
+  $owner: String!,
+  $name: String!
+) { 
+  repository (owner: $owner, name: $name) {
+    createdAt
+    stargazerCount
+  }
+}`;

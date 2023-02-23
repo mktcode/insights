@@ -1,7 +1,8 @@
 import { graphql } from "@octokit/graphql";
 import { print } from "graphql";
-import { GITHUB_USER_SCAN_QUERY } from "./queries";
+import { GITHUB_USER_SCAN_QUERY, GITHUB_REPOSITORY_SCAN_QUERY } from "./queries";
 import { evaluateUserScan, type UserScan } from "./evaluators/user";
+import { evaluateRepositoryScan, RepositoryScan } from "./evaluators/repository";
 
 export class GithubInsights {
   client: ReturnType<typeof graphql.defaults>;
@@ -22,5 +23,14 @@ export class GithubInsights {
     );
 
     return evaluateUserScan(user);
+  }
+
+  async scanRepository(owner: string, name: string) {
+    const { repository } = await this.client<{ repository: RepositoryScan }>(
+      print(GITHUB_REPOSITORY_SCAN_QUERY),
+      { owner, name }
+    );
+
+    return evaluateRepositoryScan(repository);
   }
 }

@@ -16,6 +16,12 @@ declare class GithubInsights {
         mergedPullRequestCount30d: number;
         mergedPullRequestCount365d: number;
     }>;
+    scanRepository(owner: string, name: string): Promise<{
+        mostActiveContributor: {
+            login: string;
+            contributions: number;
+        };
+    }>;
 }
 
 export { GithubInsights };

@@ -1,12 +1,24 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { GithubInsights } from "@openq/github-insights";
 
 const githubInsights = new GithubInsights({
   viewerToken: import.meta.env.VITE_GITHUB_TOKEN,
 });
 
-const username = ref(window.location.hash.replace("#", "") || "mktcode");
+const urlHash = ref(window.location.hash.replace("#", "") || "mktcode");
+
+const username = computed(() => {
+  const hash = urlHash.value;
+  const username = hash.split("/")[0];
+  return username;
+});
+
+const repo = computed(() => {
+  const hash = urlHash.value;
+  const repo = hash.split("/")[1];
+  return repo;
+});
 
 const forkCount = ref(0);
 const followersForkCount = ref(0);
@@ -21,16 +33,24 @@ const loadingData = ref(true);
 
 onMounted(async () => {
   try {
-    const authorScan = await githubInsights.scanUser(username.value);
+    if (repo.value) {
+      const repoScan = await githubInsights.scanRepository(
+        username.value,
+        repo.value
+      );
+      console.log(repoScan);
+    } else {
+      const authorScan = await githubInsights.scanUser(username.value);
 
-    forkCount.value = authorScan.forkCount;
-    followersForkCount.value = authorScan.followersForkCount;
-    stargazerCount.value = authorScan.stargazerCount;
-    followersStargazerCount.value = authorScan.followersStargazerCount;
-    followersFollowerCount.value = authorScan.followersFollowerCount;
-    mergedPullRequestCount.value = authorScan.mergedPullRequestCount;
-    mergedPullRequestCount30d.value = authorScan.mergedPullRequestCount30d;
-    mergedPullRequestCount365d.value = authorScan.mergedPullRequestCount365d;
+      forkCount.value = authorScan.forkCount;
+      followersForkCount.value = authorScan.followersForkCount;
+      stargazerCount.value = authorScan.stargazerCount;
+      followersStargazerCount.value = authorScan.followersStargazerCount;
+      followersFollowerCount.value = authorScan.followersFollowerCount;
+      mergedPullRequestCount.value = authorScan.mergedPullRequestCount;
+      mergedPullRequestCount30d.value = authorScan.mergedPullRequestCount30d;
+      mergedPullRequestCount365d.value = authorScan.mergedPullRequestCount365d;
+    }
   } catch (error) {
     console.error(error);
   } finally {
