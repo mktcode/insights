@@ -1,16 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
-import gql from 'graphql-tag';
 import { evaluateUserScan } from '../src/evaluators/user';
 import GITHUB_USER_SCAN_MOCK from './mocks/github-user-scan.json';
-
-
-const TEST = gql`query User {
-  user {
-    login
-  }
-}`
-
-console.log(TEST.loc?.source.body)
 
 jest.useFakeTimers();
 jest.setSystemTime(1677015116954);
