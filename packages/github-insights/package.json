@@ -11,7 +11,7 @@
     "lint": "eslint ."
   },
   "keywords": [],
-  "author": "",
+  "author": "mktcode",
   "license": "ISC",
   "dependencies": {
     "@octokit/graphql": "^5.0.5",
