@@ -87,6 +87,14 @@ importers:
       graphql-tag: 2.12.6_graphql@16.6.0
       octokit: 2.0.14
 
+  packages/graphql-deepquery:
+    specifiers:
+      graphql: ^16.6.0
+      graphql-tag: ^2.12.6
+    dependencies:
+      graphql: 16.6.0
+      graphql-tag: 2.12.6_graphql@16.6.0
+
 packages:
 
   /@ampproject/remapping/2.2.0:

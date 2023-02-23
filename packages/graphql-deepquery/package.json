@@ -1,0 +1,20 @@
+{
+  "name": "@openq/graphql-deepquery",
+  "version": "0.0.1",
+  "description": "Fetch deeply nested, paginated graphql data.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "mktcode",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6"
+  }
+}
