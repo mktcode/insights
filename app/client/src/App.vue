@@ -51,7 +51,12 @@ onMounted(async () => {
 
 <template>
   <main class="flex flex-col items-center space-y-5 pt-24">
-    <div v-if="loadingData" class="text-gray-500 animate-pulse border rounded-lg px-3 py-1">scanning submissions...</div>
+    <div
+      v-if="loadingData"
+      class="text-gray-500 animate-pulse border rounded-lg px-3 py-1"
+    >
+      scanning submissions...
+    </div>
     <Transition>
       <UserCard v-if="userScan" :user-name="userName" :user-scan="userScan" />
     </Transition>
