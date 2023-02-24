@@ -46,6 +46,7 @@ onMounted(async () => {
 
 <template>
   <main class="min-h-screen flex flex-col items-center justify-center">
+    <div v-if="loadingData">loading...</div>
     <UserCard v-if="userScan" :user-name="userName" :user-scan="userScan" />
     <TeamCard v-if="repoScan" :repo-scan="repoScan" />
   </main>
