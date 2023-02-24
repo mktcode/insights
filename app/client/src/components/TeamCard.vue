@@ -7,11 +7,11 @@ import TeamCardActivityChart from "./TeamCardActivityChart.vue";
 <template>
   <div>
     <div class="border rounded-lg">
-      <div class="grid grid-cols-1 sm:grid-cols-2">
+      <div class="flex flex-col sm:flex-row">
         <div class="flex flex-col border-b sm:border-b-0 sm:border-r">
           <h1 class="px-5 pt-3 text-center">Team OpenQ</h1>
           <TeamCardMembers />
-          <TeamCardActivityChart class="mt-auto" />
+          <TeamCardActivityChart class="mt-auto max-w-[280px]" />
         </div>
         <div class="px-5 py-3">
           <div class="font-bold text-right">

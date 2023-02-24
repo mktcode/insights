@@ -5,7 +5,6 @@ import {
   LinearScale,
   PointElement,
   LineElement,
-  Tooltip,
   Filler,
   type ChartOptions,
   type ChartData
@@ -17,7 +16,6 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Tooltip,
   Filler
 )
 
@@ -25,14 +23,13 @@ const data: ChartData<"line"> = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
     {
-      data: [1.5, 2, 2.5, 2, 3, 2, 2.8],
-      backgroundColor: 'rgba(0, 255, 0, 0.1)',
+      data: [1.5, 2, 2.5, 2, 2.3, 2, 2.8],
+      backgroundColor: 'rgba(0, 255, 0, 0.05)',
       borderColor: 'green',
       borderWidth: 2,
       pointBorderWidth: 0,
       pointRadius: 0,
-      pointHitRadius: 25,
-      pointBackgroundColor: 'green',
+      pointHoverRadius: 0,
       fill: true,
       tension: 0.2
     }
@@ -44,9 +41,6 @@ const options: ChartOptions<"line"> = {
   layout: {
     padding: {
       top: 5,
-      bottom: 0,
-      left: 0,
-      right: 0,
     }
   },
   plugins: {
