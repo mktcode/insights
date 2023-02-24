@@ -7,53 +7,47 @@ import {
   LineElement,
   Filler,
   type ChartOptions,
-  type ChartData
-} from 'chart.js'
-import { Line } from 'vue-chartjs'
+  type ChartData,
+} from "chart.js";
+import { Line } from "vue-chartjs";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Filler
-)
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler);
 
 const data: ChartData<"line"> = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ["January", "February", "March", "April", "May", "June", "July"],
   datasets: [
     {
       data: [1.5, 2, 2.5, 2, 2.3, 2, 2.8],
-      backgroundColor: 'rgba(0, 255, 0, 0.05)',
-      borderColor: 'green',
+      backgroundColor: "rgba(0, 255, 0, 0.05)",
+      borderColor: "green",
       borderWidth: 2,
       pointBorderWidth: 0,
       pointRadius: 0,
       pointHoverRadius: 0,
       fill: true,
-      tension: 0.2
-    }
-  ]
-}
+      tension: 0.2,
+    },
+  ],
+};
 
 const options: ChartOptions<"line"> = {
   aspectRatio: 7,
   layout: {
     padding: {
       top: 5,
-    }
+    },
   },
   plugins: {
     legend: {
-      display: false
+      display: false,
     },
     title: {
-      display: false
+      display: false,
     },
     filler: {
-      drawTime: 'beforeDatasetsDraw',
-      propagate: true
-    }
+      drawTime: "beforeDatasetsDraw",
+      propagate: true,
+    },
   },
   scales: {
     x: {
@@ -61,10 +55,9 @@ const options: ChartOptions<"line"> = {
     },
     y: {
       display: false,
-    }
-  }
-}
-
+    },
+  },
+};
 </script>
 
 <template>

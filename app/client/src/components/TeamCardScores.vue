@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { InformationCircleIcon } from "@heroicons/vue/24/outline";
-</script>
-
 <template>
   <div class="flex flex-col items-end text-gray-400 text-sm">
     <div class="flex items-center space-x-1">

@@ -181,12 +181,10 @@ function evaluateUserScan(userScan) {
 }
 
 // src/evaluators/repository.ts
-function evaluateRepositoryScan(userScan) {
+function evaluateRepositoryScan(repositoryScan) {
   return {
-    mostActiveContributor: {
-      login: "mktcode",
-      contributions: 99999
-    }
+    mostActiveContributor: null,
+    contributors: []
   };
 }
 

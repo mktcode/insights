@@ -14,9 +14,7 @@ import TeamCardActivityChart from "./TeamCardActivityChart.vue";
           <TeamCardActivityChart class="mt-auto max-w-[280px]" />
         </div>
         <div class="px-5 py-3">
-          <div class="font-bold text-right">
-            Submission to hackathon
-          </div>
+          <div class="font-bold text-right">Submission to hackathon</div>
           <div class="text-right text-sm text-gray-300 mb-3">
             OpenQDev/OpenQ-Frontend
           </div>
