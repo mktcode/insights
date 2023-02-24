@@ -51,11 +51,11 @@ The scores are inspired by OpenQ's plans for hackathon tooling but kept as gener
 
 A user's reputation is based on activity over time and the number of followers and followers's followers.
 
-## Repsotiroy
+## Repository
 
-### Actitivty
+### Activity
 
-A repositories activity is based on the number of commits, issues and pull requests (and comments) and discussions.
+A repository's activity is based on the number of commits, issues and pull requests (and comments) and discussions.
 
 ### Growth
 
@@ -63,8 +63,8 @@ Growth represents activity and popularity over time.
 
 ### Popularity
 
-A repositories popularity is based on the number of forks, stars, and pull requests and issues from external users.
+A repository's popularity is based on the number of forks, stars, and pull requests and issues from external users.
 
 ### Reputation
 
-A repositories reputation is based on its authors' reputation.
+A repository's reputation is based on its authors' reputation.
