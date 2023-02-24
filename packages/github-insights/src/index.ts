@@ -2,7 +2,7 @@ import { graphql } from "@octokit/graphql";
 import { print } from "graphql";
 import { GITHUB_USER_SCAN_QUERY, GITHUB_REPOSITORY_SCAN_QUERY } from "./queries";
 import { evaluateUserScan, type UserScan } from "./evaluators/user";
-import { evaluateRepositoryScan, RepositoryScan } from "./evaluators/repository";
+import { evaluateRepositoryScan, type RepositoryScan } from "./evaluators/repository";
 
 export class GithubInsights {
   client: ReturnType<typeof graphql.defaults>;
