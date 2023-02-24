@@ -4,6 +4,13 @@ import { GithubInsights } from "@openq/github-insights";
 import TeamCard from "./components/TeamCard.vue";
 import UserCard from "./components/UserCard.vue";
 
+const animationKey = ref(0);
+setTimeout(() => animationKey.value++, 200);
+setTimeout(() => animationKey.value++, 400);
+setTimeout(() => animationKey.value++, 600);
+setTimeout(() => animationKey.value++, 800);
+setTimeout(() => animationKey.value++, 1000);
+
 const githubInsights = new GithubInsights({
   viewerToken: import.meta.env.VITE_GITHUB_TOKEN,
 });
@@ -45,9 +52,22 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="min-h-screen flex flex-col items-center justify-center">
+  <main class="min-h-screen flex flex-col items-center space-y-5 pt-24">
     <div v-if="loadingData" class="text-gray-500 animate-pulse border rounded-lg px-3 py-1">loading...</div>
-    <UserCard v-if="userScan" :user-name="userName" :user-scan="userScan" />
-    <TeamCard v-if="repoScan" :repo-scan="repoScan" />
+    <Transition>
+      <UserCard v-if="userScan" :user-name="userName" :user-scan="userScan" />
+    </Transition>
+    <Transition>
+      <TeamCard v-if="repoScan && animationKey > 0" :repo-scan="repoScan" />
+    </Transition>
+    <Transition>
+      <TeamCard v-if="repoScan && animationKey > 1" :repo-scan="repoScan" />
+    </Transition>
+    <Transition>
+      <TeamCard v-if="repoScan && animationKey > 2" :repo-scan="repoScan" />
+    </Transition>
+    <Transition>
+      <TeamCard v-if="repoScan && animationKey > 3" :repo-scan="repoScan" />
+    </Transition>
   </main>
 </template>
