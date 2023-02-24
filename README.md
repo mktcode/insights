@@ -43,7 +43,7 @@ npm run build
 
 *draft*
 
-The scores are inspired by OpenQ's plans for a hackathon tooling but kept as generic as possible.
+The scores are inspired by OpenQ's plans for hackathon tooling but kept as generic as possible.
 
 ## User
 
