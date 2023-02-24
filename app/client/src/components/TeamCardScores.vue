@@ -1,36 +1,20 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import TeamCardScore from './TeamCardScore.vue';
+
+const animationKey = ref(0);
+setTimeout(() => animationKey.value++, 100);
+setTimeout(() => animationKey.value++, 200);
+setTimeout(() => animationKey.value++, 300);
+setTimeout(() => animationKey.value++, 400);
+setTimeout(() => animationKey.value++, 500);
+</script>
+
 <template>
-  <div class="flex flex-col items-end text-gray-400 text-sm">
-    <div class="flex items-center space-x-1">
-      <span class="mr-2">Activity</span>
-      <div class="w-4 h-4 bg-lime-500 rounded" />
-      <div class="w-4 h-4 bg-lime-500 rounded" />
-      <div class="w-4 h-4 bg-lime-500 rounded" />
-      <div class="w-4 h-4 bg-lime-500 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-    </div>
-    <div class="flex items-center space-x-1">
-      <span class="mr-2">Growth</span>
-      <div class="w-4 h-4 bg-cyan-500 rounded" />
-      <div class="w-4 h-4 bg-cyan-500 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-    </div>
-    <div class="flex items-center space-x-1">
-      <span class="mr-2">Popularity</span>
-      <div class="w-4 h-4 bg-violet-500 rounded" />
-      <div class="w-4 h-4 bg-violet-500 rounded" />
-      <div class="w-4 h-4 bg-violet-500 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-    </div>
-    <div class="flex items-center space-x-1">
-      <span class="mr-2">Reputation</span>
-      <div class="w-4 h-4 bg-rose-500 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-      <div class="w-4 h-4 bg-gray-200 rounded" />
-    </div>
+  <div class="flex flex-col items-end text-gray-900 text-sm">
+    <TeamCardScore label="Activity" :score="4" active-class="bg-lime-500" />
+    <TeamCardScore label="Growth" :score="2" active-class="bg-cyan-500" />
+    <TeamCardScore label="Popularity" :score="3" active-class="bg-violet-500" />
+    <TeamCardScore label="Reputation" :score="1" active-class="bg-rose-500" />
   </div>
 </template>
