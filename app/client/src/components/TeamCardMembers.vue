@@ -12,7 +12,7 @@
         backgroundImage: `url(https://avatars.githubusercontent.com/u/28826387)`,
       }"
     >
-      <div class="text-violet-900 bg-white rounded text-xs border border-violet-900 text-center font-bold px-2 py-0.5">
+      <div class="text-violet-900 bg-white rounded text-[10px] border border-violet-900 text-center font-bold px-2 py-0.5">
         VIP
       </div>
     </div>
