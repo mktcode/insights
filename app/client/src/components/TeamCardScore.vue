@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useKeyframes } from "../composables/useKeyframes";
 
 defineProps<{
   label: string;
@@ -7,12 +7,7 @@ defineProps<{
   activeClass: string;
 }>();
 
-const animationKey = ref(0);
-setTimeout(() => animationKey.value++, 100);
-setTimeout(() => animationKey.value++, 200);
-setTimeout(() => animationKey.value++, 300);
-setTimeout(() => animationKey.value++, 400);
-setTimeout(() => animationKey.value++, 500);
+const { animationKey } = useKeyframes(100);
 </script>
 
 <template>

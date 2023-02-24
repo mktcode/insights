@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import TeamCardScore from './TeamCardScore.vue';
-
-const animationKey = ref(0);
-setTimeout(() => animationKey.value++, 100);
-setTimeout(() => animationKey.value++, 200);
-setTimeout(() => animationKey.value++, 300);
-setTimeout(() => animationKey.value++, 400);
-setTimeout(() => animationKey.value++, 500);
 
 function randomScore() {
   return Math.floor(Math.random() * 5) + 1;

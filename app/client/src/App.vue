@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 import { GithubInsights } from "@openq/github-insights";
+import { useKeyframes } from "./composables/useKeyframes";
 import TeamCard from "./components/TeamCard.vue";
 import UserCard from "./components/UserCard.vue";
 
-const animationKey = ref(0);
-setTimeout(() => animationKey.value++, 200);
-setTimeout(() => animationKey.value++, 400);
-setTimeout(() => animationKey.value++, 600);
-setTimeout(() => animationKey.value++, 800);
-setTimeout(() => animationKey.value++, 1000);
+const { animationKey } = useKeyframes(200);
 
 const githubInsights = new GithubInsights({
   viewerToken: import.meta.env.VITE_GITHUB_TOKEN,
@@ -34,6 +30,8 @@ const userScan = ref<any>();
 const repoScan = ref<any>();
 
 onMounted(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   try {
     if (repoName.value) {
       repoScan.value = await githubInsights.scanRepository(
@@ -52,8 +50,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="min-h-screen flex flex-col items-center space-y-5 pt-24">
-    <div v-if="loadingData" class="text-gray-500 animate-pulse border rounded-lg px-3 py-1">loading...</div>
+  <main class="flex flex-col items-center space-y-5 pt-24">
+    <div v-if="loadingData" class="text-gray-500 animate-pulse border rounded-lg px-3 py-1">scanning submissions...</div>
     <Transition>
       <UserCard v-if="userScan" :user-name="userName" :user-scan="userScan" />
     </Transition>
