@@ -39,3 +39,32 @@ npm run lint
 npm run build
 ```
 
+# Scores
+
+*draft*
+
+The scores are inspired by OpenQ's plans for a hackathon tooling but kept as generic as possible.
+
+## User
+
+### Reputation
+
+A user's reputation is based on activity over time and the number of followers and followers's followers.
+
+## Repsotiroy
+
+### Actitivty
+
+A repositories activity is based on the number of commits, issues and pull requests (and comments) and discussions.
+
+### Growth
+
+Growth represents activity and popularity over time.
+
+### Popularity
+
+A repositories popularity is based on the number of forks, stars, and pull requests and issues from external users.
+
+### Reputation
+
+A repositories reputation is based on its authors' reputation.
