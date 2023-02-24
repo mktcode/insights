@@ -1,0 +1,32 @@
+<template>
+  <div class="flex items-center -space-x-3 px-5 pt-3">
+    <div
+      class="w-14 h-14 bg-gray-400 rounded-full bg-cover border-2 z-0"
+      :style="{
+        backgroundImage: `url(https://avatars.githubusercontent.com/u/6792578)`,
+      }"
+    />
+    <div
+      class="w-16 h-16 bg-gray-400 rounded-full bg-cover border-2 z-20 flex items-end justify-center"
+      :style="{
+        backgroundImage: `url(https://avatars.githubusercontent.com/u/28826387)`,
+      }"
+    >
+      <div class="text-violet-900 bg-white rounded text-xs border border-violet-900 text-center font-bold px-2 py-0.5">
+        VIP
+      </div>
+    </div>
+    <div
+      class="w-14 h-14 bg-gray-400 rounded-full bg-cover border-2 z-10"
+      :style="{
+        backgroundImage: `url(https://avatars.githubusercontent.com/u/93455288)`,
+      }"
+    />
+    <div
+      class="w-14 h-14 bg-gray-400 rounded-full bg-cover border-2 z-0"
+      :style="{
+        backgroundImage: `url(https://avatars.githubusercontent.com/u/32375569)`,
+      }"
+    />
+  </div>
+</template>

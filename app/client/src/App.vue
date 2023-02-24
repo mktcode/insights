@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
+import TeamCard from "./components/TeamCard.vue";
 import { GithubInsights } from "@openq/github-insights";
 
 const githubInsights = new GithubInsights({
@@ -90,5 +91,6 @@ onMounted(async () => {
         last 30 days.
       </p>
     </div>
+    <TeamCard class="mt-10" />
   </main>
 </template>
