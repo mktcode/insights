@@ -16,11 +16,21 @@ export async function paginate<T extends Record<string, any>>(
 ): Promise<T> {
   const fullData = await client<T>(print(query), variables);
   
-  const { nodes, totalCount, pageInfo: { hasNextPage, endCursor } } = get(fullData, pathToPaginatedProperty);
+  const {
+    nodes,
+    totalCount,
+    pageInfo: { hasNextPage, endCursor }
+  } = get(fullData, pathToPaginatedProperty);
 
   if (hasNextPage) {
     const perPage = Math.min(totalCount - nodesFetched, 100);
-    const nextData = await paginate(client, query, { ...variables, first: perPage, after: endCursor }, pathToPaginatedProperty, nodesFetched + nodes.length );
+    const nextData = await paginate(
+      client,
+      query,
+      { ...variables, first: perPage, after: endCursor },
+      pathToPaginatedProperty,
+      nodesFetched + nodes.length
+    );
     const nextPageData = get(nextData, pathToPaginatedProperty);
     set(fullData, pathToPaginatedProperty, {
       ...nextPageData,
