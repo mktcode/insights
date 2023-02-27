@@ -12,14 +12,15 @@ export async function paginate<T extends Record<string, any>>(
   query: DocumentNode,
   variables: PaginatableQueryVariables,
   pathToPaginatedProperty: string[],
+  nodesFetched = 0,
 ): Promise<T> {
   const fullData = await client<T>(print(query), variables);
   
   const { nodes, totalCount, pageInfo: { hasNextPage, endCursor } } = get(fullData, pathToPaginatedProperty);
 
   if (hasNextPage) {
-    const perPage = Math.min(totalCount - nodes.length, 100);
-    const nextData = await paginate(client, query, { ...variables, first: perPage, after: endCursor }, pathToPaginatedProperty);
+    const perPage = Math.min(totalCount - nodesFetched, 100);
+    const nextData = await paginate(client, query, { ...variables, first: perPage, after: endCursor }, pathToPaginatedProperty, nodesFetched + nodes.length );
     const nextPageData = get(nextData, pathToPaginatedProperty);
     set(fullData, pathToPaginatedProperty, {
       ...nextPageData,
