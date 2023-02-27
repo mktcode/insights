@@ -84,13 +84,17 @@ importers:
   packages/github-insights:
     specifiers:
       '@octokit/graphql': ^5.0.5
+      '@types/lodash': ^4.14.191
       graphql: ^16.6.0
       graphql-tag: ^2.12.6
+      lodash: ^4.17.21
       octokit: ^2.0.14
     dependencies:
       '@octokit/graphql': 5.0.5
+      '@types/lodash': 4.14.191
       graphql: 16.6.0
       graphql-tag: 2.12.6_graphql@16.6.0
+      lodash: 4.17.21
       octokit: 2.0.14
 
 packages:
@@ -1604,6 +1608,10 @@ packages:
     resolution: {integrity: sha512-c5ltxazpWabia/4UzhIoaDcIza4KViOQhdbjRlfcIGVnsE3c3brkz9Z+F/EeJIECOQP7W7US2hNE930cWWkPiw==}
     dependencies:
       '@types/node': 18.14.0
+    dev: false
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: false
 
   /@types/lru-cache/5.1.1:

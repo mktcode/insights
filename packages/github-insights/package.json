@@ -15,8 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "@octokit/graphql": "^5.0.5",
+    "@types/lodash": "^4.14.191",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
+    "lodash": "^4.17.21",
     "octokit": "^2.0.14"
   }
 }
