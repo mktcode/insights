@@ -236,8 +236,12 @@ var import_graphql2 = require("graphql");
 var import_lodash = require("lodash");
 function paginate(client, query, variables, pathToPaginatedProperty, nodesFetched = 0) {
   return __async(this, null, function* () {
-    const data = yield client((0, import_graphql2.print)(query), variables);
-    const { nodes, totalCount, pageInfo: { hasNextPage, endCursor } } = (0, import_lodash.get)(data, pathToPaginatedProperty);
+    const fullData = yield client((0, import_graphql2.print)(query), variables);
+    const {
+      nodes,
+      totalCount,
+      pageInfo: { hasNextPage, endCursor }
+    } = (0, import_lodash.get)(fullData, pathToPaginatedProperty);
     if (hasNextPage) {
       const perPage = Math.min(totalCount - nodesFetched, 100);
       const nextData = yield paginate(
@@ -248,11 +252,11 @@ function paginate(client, query, variables, pathToPaginatedProperty, nodesFetche
         nodesFetched + nodes.length
       );
       const nextPageData = (0, import_lodash.get)(nextData, pathToPaginatedProperty);
-      (0, import_lodash.set)(data, pathToPaginatedProperty, __spreadProps(__spreadValues({}, nextPageData), {
+      (0, import_lodash.set)(fullData, pathToPaginatedProperty, __spreadProps(__spreadValues({}, nextPageData), {
         nodes: [...nodes, ...nextPageData.nodes]
       }));
     }
-    return data;
+    return fullData;
   });
 }
 
@@ -270,7 +274,6 @@ var GithubInsights = class {
     return __async(this, null, function* () {
       const userScan = yield fetchUserScan(this.client, login);
       const followers = yield paginate(this.client, GITHUB_USER_FOLLOWERS_QUERY, { login, first: 1 }, ["user", "followers"]);
-      console.log(followers);
       return evaluateUserScan(userScan);
     });
   }
